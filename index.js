@@ -1,4 +1,21 @@
 /***************************************************************//코드잇 자바스크립트 기초 공부//******************************************/
+
+                                                           //과제10. 자료형 응용하기
+//이러한 반복적인 작업을 간편하게 나타내기
+function logParticipant(name){
+  console.log(`${name}(이)가 대화에 참여 했습니다.`);
+}
+                                                                                //${} 템플릿 리터럴을 사용시!!! 무조건 ` 백틱으로만 감싸야 한다.
+                                                                                
+//테스트 코드
+logParticipant('동수');
+logParticipant('윤하');
+logParticipant('재준');
+logParticipant('동훈');
+logParticipant('영희');
+logParticipant('신욱');
+
+
                                                            //과제9. 자료형 응용하기
 //숫자형을 담고 있는 변수(material1,material3,material5)과 문자열을 담고 있는 변수(material2,material4)가 있다
 //변수끼리 연산해 result1에는 문자열 '34'를 result2에는 숫자형 34를 담아라.
@@ -142,5 +159,4 @@ console.log('괴로우나 즐거우나 나라 사랑하세');
 console.log(10+5);
 console.log(10*3/2);
 console.log(45/3);
-
 
