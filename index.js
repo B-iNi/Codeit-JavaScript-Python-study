@@ -1,6 +1,43 @@
 /***************************************************************//코드잇 자바스크립트 기초 공부//******************************************/
 
-                                                           //과제10. 자료형 응용하기
+                                                           //과제10-3. 함수 이용 출력 기본값
+function orderSetMenu(sandwich,drink = "스프라이트"){
+  console.log(`주문하신 ${sandwich}, ${drink}세트 나왔습니다!`);    //함수선언에서 파타미터의값이 정해지지 않아서 기본값이 존재할 경우
+}                                                             // function 함수 (파라미터 = "기본값"){
+                                                              // 해당 값에 = 그리고 '기본값' 입력해 줘야함!!!
+//테스트 코드
+orderSetMenu('코드웨잇 클럽');
+orderSetMenu('터키베이컨 아보카도', '코카콜라');
+orderSetMenu('코드웨잇 멜트');
+
+                                                           //과제10-2. 함수 이용 계산3
+//직사각형의 넓이를 구하시오
+function calculateRectangleArea(width,height){
+  return width * height
+}                                                                            //테스크 코드를 통해 함수가 필요하기에 함수를 호출 
+                                                                             //호출된 함수로 계산된 값이 새로운 변수 값에 들어가야함
+//테스트 코드                                                                   //return 으로 해당값을 다시 받게끔 해서 적용!!
+let area1 = calculateRectangleArea(3, 4);  // 가로 3, 세로 4인 직사각형의 넓이 계산
+let area2 = calculateRectangleArea(5, 8);  // 가로 5, 세로 8인 직사각형의 넓이 계산
+let area3 = calculateRectangleArea(7, 2);  // 가로 7, 세로 2인 직사각형의 넓이 계산
+
+console.log(`Area1: ${area1}, Area2: ${area2}, Area3: ${area3}`);
+                                                           //과제10-1. 함수 이용 계산2
+
+function expressMultiplication(x,y){
+  console.log(`${x} x ${y} = ${x*y}`);
+}
+
+//테스트 코드
+expressMultiplication(3, 4);
+expressMultiplication(3, 2);
+expressMultiplication(7, 5);
+expressMultiplication(8, 9);
+expressMultiplication(5, 5);
+expressMultiplication(9, 9);
+
+
+                                                           //과제10. 함수 이용 계산1
 //이러한 반복적인 작업을 간편하게 나타내기
 function logParticipant(name){
   console.log(`${name}(이)가 대화에 참여 했습니다.`);
