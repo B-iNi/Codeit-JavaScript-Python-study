@@ -1,5 +1,50 @@
 /***************************************************************//코드잇 자바스크립트 기초 공부//******************************************/
 
+                                                           //과제12-3. if 제어문4
+//나의 나이와,성별을 담은 함수와 호칭을 담은 변수가 있다.
+//상대 나이와 성별에 따른 호칭이 알맞게 표현하라
+
+let myAge = 26;
+let myGender = 'male';
+
+let callOlderBrother = '형';
+let callOlderSister = '누나';
+let callFriend = '친구';
+let callYoungerSister = '여동생';
+let callYoungerBrother = '남동생';
+
+function whatShouldICallYou(Age, Gender){
+  if(Age == 26){
+    return callFriend;                                                                     //각 호칭들로 결과값을 리턴시켜야 함!!!!
+  }
+  else if(Age < 26 && Gender == "male"){
+    return callYoungerBrother;
+  }
+  else if(Age < 26 && Gender == "female"){
+    return callYoungerSister;
+  }
+  else if (Age > 26 && Gender == "female"){
+    return callOlderSister;
+  }
+  else{
+    return callOlderBrother;
+  }
+}
+
+//테스트 코드                                                                                 //테스트 코드에 함수와, 그 값이 적혀 있음 하지만,
+let result01 = whatShouldICallYou(25, 'female');
+let result02 = whatShouldICallYou(20, 'male');
+let result03 = whatShouldICallYou(26, 'female');
+let result04 = whatShouldICallYou(30, 'male');
+let result05 = whatShouldICallYou(31, 'female');                                             //밑에 출력 console.log가 결과값을 따로 출력하게끔 되어있음으로 각 값들을 호칭 변수로 리턴해야한다
+
+console.log(result01);
+console.log(result02);
+console.log(result03);
+console.log(result04);
+console.log(result05);
+
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
                                                            //과제12-1. if 제어문2
 function printGrade(a,b){                                                        
   let totalscore = a + b;
@@ -8,7 +53,7 @@ function printGrade(a,b){
   }
   else if(totalscore >= 80){                                               //조건에 안맞을 경우
     console.log("B");
-  }ㄴ
+  }
   else if(totalscore >= 70){                                               //조건에 안맞을 경우
     console.log("C");
   }
