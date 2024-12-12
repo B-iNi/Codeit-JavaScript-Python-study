@@ -1,5 +1,41 @@
 /***************************************************************//코드잇 자바스크립트 기초 공부//******************************************/
 
+                                                           //과제13. swich문 응용
+//swich 문을 이용, 각 함수에 맞게끔 출력하시오
+
+let VIPPrice = 15;                       //각 등급별 가격을 나타내는 변수 선언
+let RPrice = 13;
+let SPrice = 10;
+let APrice = 8;
+
+function checkPrice(grade){                //테스트코드 입력 받을 함수 호출
+  switch (grade){
+    case'R':
+      console.log (`${grade}석 금액은 ${RPrice}만원 이다.`);                                             //  function 함수 (파라미터){
+      break;                                                                                          //    swich (파라미터){
+    case'VIP':                                                                                        //       case'파라미터' :
+      console.log (`${grade}석 금액은 ${VIPPrice}만원 이다.`);                                           //          console.log("내용");
+      break;                                                                                          //              break;
+    case'S':                                                                                          //     }
+      console.log (`${grade}석 금액은 ${SPrice}만원 이다.`);                                             //   }
+      break;
+    case'A':                                                                                          //  여러 선택사항이 있을때 스위치 문을 이용해 열고   선택지(케이스)를 선언한다!!!!
+      console.log (`${grade}석 금액은 ${APrice}만원 이다.`);
+      break;
+    case'B':
+      console.log (`VIP,R,S,A 중 고르시오.`);
+      break;  
+  }
+}
+
+// 테스트 코드
+checkPrice('R');
+checkPrice('VIP');
+checkPrice('S');
+checkPrice('A');
+checkPrice('B');
+
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
                                                            //과제12-3. if 제어문4
 //나의 나이와,성별을 담은 함수와 호칭을 담은 변수가 있다.
 //상대 나이와 성별에 따른 호칭이 알맞게 표현하라
