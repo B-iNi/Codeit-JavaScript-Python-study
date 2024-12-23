@@ -1,10 +1,41 @@
 /*********************************************************//코드잇 자바스크립트 기초 공부//****************************************************/
 
+                                                           //과제19. 객체2
+//함수를 이용해 객체에 새로운 키와 값을 넣고, 삭제하기
+
+let myvoca = {
+  addvoca: function(key,value){                                //객체를 추가해야함으로 메소드에 함수와 함께(파라미터로 키와 값을 지정)
+    myvoca[key] = value;                                       //함수로 지정된 키와 값은 myvoca의 객체이다.
+  },
+  deletevoca: function(key){                                   //같은 방법으로 삭제해야하니 메소드에 함수와 함께(파라미터로 키를 받음)
+    delete myvoca[key];                                        // 받은 키는 myvoca의 객체에서 제거 delete
+  },
+  printvoca: function(key){                                    //지정된 메소드에 키를 출력하는 함수를 선언과(파라미터로 키를 지정)
+    console.log(`${key}의 뜻은 ${myvoca[key]}입니다.`);           //출력창에 메소드로 지정된 키 값을 받고 myvoca안에 있는 객체의 값을 출력
+  }
+
+};
+
+// addVoca메소드 테스트 코드                                         //  메소드: 함수(파라미터){
+myvoca.addvoca('parameter', '매개 변수');                          //     객체[키] = 값;   
+myvoca.addvoca('element', '요소');                                //   }
+myvoca.addvoca('property', '속성');
+console.log(myvoca);
+
+// deleteVoca메소드 테스트 코드
+myvoca.deletevoca('parameter');
+myvoca.deletevoca('element');
+console.log(myvoca);
+
+// printVoca메소드 테스트 코드
+myvoca.printvoca('property');
+
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
                                                            //과제18. 객체1
  let myVoca = { 'function':'함수','varible':'함수','constant':'상수','local':'지역의','global':'전박적인'};
  // ㄴ 변수 언선, 안에 객체들을 지정함. 객체는 key : value,로 지정하고 : 클론으로 키와 값을 구분!!
 
-console.log(myVoca);                
+console.log(myVoca);                //오브젝트 출력 (하위에 객체 들어있음)
 console.log(myVoca.local);         // console.log(myVoca['local'])   과 같음
 console.log(myVoca.constant);
 console.log(myVoca.function);
