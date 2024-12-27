@@ -1,5 +1,13 @@
 /*********************************************************//코드잇 자바스크립트 기초 공부//****************************************************/
 
+                                                           //과제21. 배열
+// 아래 배열을 한줄씩 적어 보자
+let dataType = ['number', 'string', 'boolean', 'null', 'undefined', 'object'];   //이렇게 배열이 주어짐 
+let j;                                                                           //반복문을 쓰기 위해 변수 선언
+for(j=0;j<6;j++){                                                                //반복문
+  console.log(dataType[j]);                               //배열의 경우 [] 대괄호  객체일 경우 {} 중괄호  사용!!!
+}
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
                                                            //과제20. 객체 반복문 응용
 
 // 해당 날로부터 몇일이 지난지 계산해 보자
@@ -8,9 +16,9 @@ let today = new Date(2112, 7, 24);  //가상의 오늘날
 let jaeSangStart = new Date(2109, 6, 1); //과거의 오늘
 
 function workDayCalc(startDate) {
-  let timeDiff = today.getTime() - startDate.getTime();  //timeDiff 변수 선언 시간 차이 나타냄.   .getTime()으로 두 객체 시간의 차이를 밀리초로 나타냄
-  let dayDiff = timeDiff / 1000 / 60 / 60 / 24;  //밀리초값을 날짜로 변환 하는 변수 선언. 1000(밀리초) 60(초) 60(분) 24(하루)
-  console.log(`해당 일로부터 오늘은 ${Math.floor(dayDiff)+1}일째 되는 날이다.`);   //혹시라도 소수점이 나올 수 있기에  Mate.floor 로 정수로만 표현함.
+  let timeDiff = today.getTime() - startDate.getTime();     //timeDiff 변수 선언 시간 차이 나타냄.   .getTime()으로 두 객체 시간의 차이를 밀리초로 나타냄
+  let dayDiff = timeDiff / 1000 / 60 / 60 / 24;                         //밀리초값을 날짜로 변환 하는 변수 선언. 1000(밀리초) 60(초) 60(분) 24(하루)
+  console.log(`해당 일로부터 오늘은 ${Math.floor(dayDiff)+1}일째 되는 날이다.`); //혹시라도 소수점이 나올 수 있기에  Mate.floor 로 정수로만 표현함.
 }
 //테스트 코드                                         자바스크립트에서 기본적으로 getTime은 시간을 밀리초로 표현한 것!!!
 workDayCalc(jaeSangStart);
