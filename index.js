@@ -1,5 +1,39 @@
 /*********************************************************//코드잇 자바스크립트 기초 공부//****************************************************/
 
+                                                           //과제23. 배열-splice
+
+let fruits = ['레몬', '토마토', '딸기', '바나나'];
+let ages = [20, 24, 25, 29, 30, 33];
+let numbers = [];
+
+
+fruits.splice(1,1,'사과','청포도');
+
+fruits.splice(0,1);
+
+ages.splice(5,1);
+
+
+ages.splice(1,2,26,28);
+
+
+numbers.push(1,2,3,5,8,9);
+for (let i = 0 ; i < numbers.length; i++){
+  if(numbers[i] %2 !==0){
+    numbers.splice(i,1);
+    i--;
+  }
+}
+//console.log(ages);
+//테스트 코드
+console.log(fruits[1]);
+console.log(fruits[0]);
+console.log(ages[ages.length - 1]);
+console.log(ages[2]);
+console.log(numbers[3]);
+console.log(numbers);
+
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
                                                            //과제22. 배열
 //다음의 온도를 화씨로 변환하기 (배열의 인덱스 값을 하나하나 변환 하기)
 let celsiusTemps = [27, 25, 26, 22, 28, 27, 21];
