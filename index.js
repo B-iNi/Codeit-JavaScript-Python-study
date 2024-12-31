@@ -5,26 +5,23 @@
 let fruits = ['레몬', '토마토', '딸기', '바나나'];
 let ages = [20, 24, 25, 29, 30, 33];
 let numbers = [];
+                                                                    // arr.splice (index[i]기준, 개수, 변경사항, 변경사항...)
+fruits.splice(1,1,'사과','청포도');         //토마토를 빼고 사과 청포도 추가함  
+
+fruits.splice(0,1);                     //첫번째 인덱스값을 기준으로 1개 제거
+
+ages.splice(5,1);                       //마지막 인덱스값을 기준으로 1개제거(즉 맨 마지막 값을 제거) =>  arr.splice( arr.length-1, 1) 이렇게 표현 가능
+
+ages.splice(1,2,26,28);                 //인덱스 두번째 값을 기준으로 해서 세번째 값을 변경 함
 
 
-fruits.splice(1,1,'사과','청포도');
-
-fruits.splice(0,1);
-
-ages.splice(5,1);
-
-
-ages.splice(1,2,26,28);
-
-
-numbers.push(1,2,3,5,8,9);
-for (let i = 0 ; i < numbers.length; i++){
-  if(numbers[i] %2 !==0){
-    numbers.splice(i,1);
-    i--;
+numbers.push(1,2,3,5,8,9);              // 'push' 로 맨 앞에서 부터 값 삽입  => arr.splice(0,0,변경사항...) 이렇게 표현 가능
+for (let i = 0 ; i < numbers.length; i++){//배열의 길이만큼 반복
+  if(numbers[i] %2 !==0){     //인덱스 값이 홀수인 경우 조건          arr[index] => 해당 인덱스의 값을 나타냄
+    numbers.splice(i,1);      //홀수인 경우의 배열을 삭제
+    i--;                      //삭제하고 나서는 하나의 자리가 지워지기에 i-- 로 하나씩 줄여줘야함.
   }
 }
-//console.log(ages);
 //테스트 코드
 console.log(fruits[1]);
 console.log(fruits[0]);
