@@ -14,8 +14,8 @@ function InterestCalculator(rate,payment,term){
   let totalPayment = payment * term;
   let interest = payment * term * (term + 1) / 2 * (rate / 12);     
   
-  console.log("맡긴 금액은", totalPayment.toFixed(0), "원 입니다.");
-  console.log("이자는", interest.toFixed(0), "원 입니다.");
+  console.log("맡긴 금액은", totalPayment.toFixed(0), "원 입니다.");              //소수점을 제거하기 위해 .toFixed(0) 을 사용함 = 정수로 변환(소수점 이하 반올림)
+  console.log("이자는", interest.toFixed(0), "원 입니다.");                     // .toFixed(2) 이것은 = 소수점 둘째 자리까지 표시 라는 뜻임
   console.log("최종 받을 금액은", (totalPayment + interest).toFixed(0), "원 입니다.");
 }
 // 이율이 4.3%일 때 매월 80만원씩 24개월 납입할 경우
