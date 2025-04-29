@@ -20,9 +20,9 @@ def test_get_nonexistent_resource():
   except Exception as e:
         print(f"An unexpected error occurred: {e}")
 test_get_nonexistent_resource()
-/* 출력 결과 : Requesting a non-existent resource...
-             Received Status Code: 404
-             Successfully verified 404 status code for non-existent resource. */
+/** 출력 결과 : Requesting a non-existent resource...
+               Received Status Code: 404
+               Successfully verified 404 status code for non-existent resource. **/
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 # 쿼리 파라미터 사용 GET 요청
 import requests
@@ -54,9 +54,9 @@ def test_get_comments_with_query_param():
   except Exception as e:
     print(f"An unexpected error occurred: {e}")
 test_get_comments_with_query_param()    
-   /* 출력 결과 : Fetching comments for postId: 1
-                 First comment Post ID: 1
-                 Successfully verified comments for postId 1.  */
+/** 출력 결과 : Fetching comments for postId: 1
+               First comment Post ID: 1
+               Successfully verified comments for postId 1.  **/
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 # DELETE 요청 보내고 상태코드 확인
 import requests
@@ -74,8 +74,8 @@ except requests.exceptions.RequestException as e:
     print(f"Error sending DELETE request: {e}")
 except Exception as e:
     print(f"An unexpected error occurred: {e}")      
-/* 출력 결과 : Status Code after DELETE: 200
-             Post successfully deleted (or simulated deletion). */
+/** 출력 결과 : Status Code after DELETE: 200
+               Post successfully deleted (or simulated deletion). **/
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 # PUT요청 보내고 응답 내용 확인
 import requests
