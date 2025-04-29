@@ -1,7 +1,133 @@
 /*********************************************************//코드잇 파이썬 기초 공부//****************************************************/
 
+# 쿼리 파라미터 사용 GET 요청
+import requests
+import json
 
+def test_get_comments_with_query_param():
+  target_post_id = 1
+  print(f"Fetching comments for postId: {target_post_id}")
+  url = "https://jsonplaceholder.typicode.com/comments"  # 댓글 목록 가져올 url 저장함
+  
+  # 지시사항에 따라 해당 값인 쿼리 파라미터 딕셔너리 생성함
+  query_params = {  
+    'postId':1
+  }
+  try:
+    response = requests.get(url,json=query_params)  # url 과 query_params 를 이용해 get 요청을 보냄
+    response.raise_for_status()                     # 그런 다음 response 의 상태 코드를 검증함 .raise_for_status 성공인지 실팬지
+    comments = response.json()                      # response 값을 json으로 변환
+    assert len(comments) > 0, "No comments received" # 응답이 비어있는 않은지 확인
+    first_comment_post_id = comments[0].get('postId')
+    print(f"First comment Post ID: {first_comment_post_id}")
+    assert first_comment_post_id == target_post_id ,"postId does not match target"  # 지시사항대로 같은지 검증하는것임
+    print(f"Successfully verified comments for postId {target_post_id}.")
 
+  except requests.exceptions.RequestException as e:
+    print(f"Error during requests: {e}")
+  except (AssertionError, IndexError) as e:
+    print(f"Assertion or data processing error: {e}")
+  except Exception as e:
+    print(f"An unexpected error occurred: {e}")
+    # 출력 결과 : Fetching comments for postId: 1
+                 First comment Post ID: 1
+                 Successfully verified comments for postId 1.  
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
+# DELETE 요청 보내고 상태코드 확인
+import requests
+
+post_id_to_delete = 1 # 삭제할 게시글 아이디 예시임
+target_url = f"https://jsonplaceholder.typicode.com/posts/{post_id_to_delete}"  # url 완성시켜줬음
+try:
+  response = requests.delete(target_url)     # url 로 delete 요청 보냄
+  print('Status Code after DELETE:",response.status_code)
+  if response.status_code == 200 or response.status_code == 204:
+        print("Post successfully deleted (or simulated deletion).")
+    else:
+        print(f"Failed to delete post. Status code: {response.status_code}")
+except requests.exceptions.RequestException as e:
+    print(f"Error sending DELETE request: {e}")
+except Exception as e:
+    print(f"An unexpected error occurred: {e}")      
+# 출력 결과 : Status Code after DELETE: 200
+             Post successfully deleted (or simulated deletion).
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
+# PUT요청 보내고 응답 내용 확인
+import requests
+import json
+
+post_id_to_update = 1 # 수정할 게시글 ID 예시임
+target_url = f"https://jsonplaceholder.typicode.com/posts/{post_id_to_update}"  # 이런식으로 가능함
+updated_post_data = {          #put 요청으로 보낼 데이터 딕셔너리로 정의
+  "title":"Updated Post Title",
+  "id": 1,
+  "name":"bin"
+}
+try:
+  response = requests.put(target_url, json=updated_post_data)    # put 요청 보냄
+  updated_post = response.json()        # json 형식으로..
+  print("Updated Post Title:",updated_post['title']) # put 으로 보낸 데이터에서 title 값 출력
+  except requests.exceptions.RequestException as e:
+    print(f"Error sending PUT request: {e}")
+except KeyError:
+    print("Error: 'title' key not found in the response.")
+except Exception as e:
+    print(f"An unexpected error occurred: {e}")
+# 출력 결과 : Updated Post Title: Updated Post Title
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
+# POST 요청 보내고 생성 리소스 ID 확인
+import requests
+import json
+
+url = "https://jsonplaceholder.typicode.com/posts"
+
+new_post_data = {   # 대충 post 요청으로 보낼 데이터임 - 딕셔너리 형태
+  "name":"jin"
+}
+try:
+  response = requests.post(url, json=new_post_data) # url 에 post 요청 보내는데 new_post_data 를 json 형태로 보냄 했던걸 response로 저장
+  new_post = response.json() # 거를 json() 형태로 변환함
+  print("Created New Post ID:",new_post['id']) # 새로 post 된 것의 id 값을 출력함
+except requests.exceptions.RequestException as e:
+    print(f"Error sending POST request: {e}")
+except KeyError:
+    print("Error: 'id' key not found in the response.")
+except Exception as e:
+    print(f"An unexpected error occurred: {e}")
+# 출력 결과 : Created Post ID: 101
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
+# GET 요청 후 응답 내용 확인
+import requests
+
+url = "https://jsonplaceholder.typicode.com/posts/1"
+try:
+  response = requests.get(url)  # GET 요청 보내서 response 변수로 저장
+  response.raise_for_status()   # .raise_for_status 가 요청 성공 했는지 확인/ 200 ok 아니면 예외 처리
+  json = response.json()        # response의 응답내용을 JSON() 형식으로 변환해서 변수 json 으로 저장
+  print("Post Title:",json['title']) # 변수 json 데이터에서 title 값을 출력함
+except requests.exceptions.RequestException as e:
+    print(f"Error: {e}")
+except KeyError:
+    print("Error: 'title' key not found in the response.")
+except Exception as e:
+    print(f"An unexpected error occurred: {e}")
+
+# 출력 결과 : Post Title: sunt aut facere repellat provident occaecati excepturi optio reprehenderit
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
+# GET 요청 보내고 상태 코드 확인
+import requests
+
+url = "https://jsonplaceholder.typicode.com/posts/1"
+
+try:
+  response = requests.get(url) # GET 요청 보냄
+  print('Status Code:',response.status_code) # 응답 상태 코드 출력함  status_code 코드 상태 나옴
+
+except requests.exceptions.RequestException as e:
+  print(f"Error: {e}")
+
+# 출력 결과 : Status Code: 200
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
 name = "김아무개"
 ment = "안녕하세요?"
 
