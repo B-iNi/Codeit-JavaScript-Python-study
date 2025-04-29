@@ -1,5 +1,29 @@
 /*********************************************************//코드잇 파이썬 기초 공부//****************************************************/
 
+# 잘못된 요청(404Not Found) 처리
+import requests
+
+def test_get_nonexistent_resource():
+    """존재하지 않는 리소스 요청 시 404 상태 코드 확인"""
+    print("Requesting a non-existent resource...")
+  invalid_url = "https://jsonplaceholder.typicode.com/posts/9999"  # 지시사항대로 변수 저장함
+  try:
+    response = requests.get(invalid_url)      # 지시사항대로 get 보내고 응답 변수 저장
+    print(f"Received Status Code: {response.status_code}")   # 응답 상태 코드로 출력
+    assert response.status_code == 404,f"Expected 404, got {response.status_code}"    # 상태코드가 404 맞는지 검증
+    print("Successfully verified 404 status code for non-existent resource.")
+
+  except requests.exceptions.RequestException as e:
+        print(f"Error during requests: {e}")
+  except AssertionError:
+        print(f"Assertion failed: Expected status code 404, but got {response.status_code}")
+  except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+test_get_nonexistent_resource()
+# 출력 결과 : Requesting a non-existent resource...
+             Received Status Code: 404
+             Successfully verified 404 status code for non-existent resource.
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
 # 쿼리 파라미터 사용 GET 요청
 import requests
 import json
@@ -29,6 +53,7 @@ def test_get_comments_with_query_param():
     print(f"Assertion or data processing error: {e}")
   except Exception as e:
     print(f"An unexpected error occurred: {e}")
+test_get_comments_with_query_param()    
     # 출력 결과 : Fetching comments for postId: 1
                  First comment Post ID: 1
                  Successfully verified comments for postId 1.  
