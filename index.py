@@ -1,5 +1,30 @@
-/*********************************************************//코드잇 파이썬 기초 공부//****************************************************/
+/*********************************************************//파이썬 기초 공부//****************************************************/
 
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
+# GET 요청 응답 JSON 내용 검증
+import pytest
+import requests
+
+def test_get_post_check_user_id():
+    url = "https://jsonplaceholder.typicode.com/posts/1"
+    response = requests.get(url) # url 에 get 요청 보내고 response에 저장
+    response.raise_for_status()  # 요청 실패 시 예외 처리 하도록 함 .raise_for_status
+    json_data = response.json()  # json_data에 response을 json으로 딕셔너리 형태로 변환
+    assert json_data['userId'] == 1  # json_data에서 딕셔너리에 userId 값이 1인지 검증 함
+# 출력 결과 : ================== 1 passed in ...s ==================
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
+# pytest 기본 테스트 함수 작성, GET 요청 상태 코드 검증
+import pytest
+import requests
+
+def test_get_post_check_status_code():
+    url = "https://jsonplaceholder.typicode.com/posts/1"
+    response = requests.get(url)  # url 에 GET 요청 보냄
+    assert response.status_code == 200, "대충 예외 멘트"  # assert로 response 상태 코드가 200 검증하는것임
+
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
 # 잘못된 요청(404Not Found) 처리
 import requests
 
